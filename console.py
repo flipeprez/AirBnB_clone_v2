@@ -124,15 +124,19 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         new_instance = HBNBCommand.classes[attrs[0]]()
-        for i in range(2, len(attrs)):
+        print("class: {}".format(attrs[0]))
+        for i in range(1, len(attrs)):
             my_attr = attrs[i].split("=")
+            print("key name: {}".format(my_attr[0]))
             if '\"' == my_attr[1][0] and '\"' == my_attr[1][-1]:
-                my_attr[1].strip('\"').replace('_', ' ')
-                setattr(attrs[0], my_attr[0], my_attr[1])
+                my_attr[1] = my_attr[1].strip('\"')
+                my_attr[1] = my_attr[1].replace('_', ' ')
+                print("value: {}".format(my_attr[1]))
+                setattr(new_instance, my_attr[0], my_attr[1])
             elif '.' in my_attr[1]:
-                setattr(attrs[0], my_attr[0], float(my_attr[1]))
+                setattr(new_instance, my_attr[0], float(my_attr[1]))
             else:
-                setattr(attrs[0], my_attr[0], int(my_attr[1]))
+                setattr(new_instance, my_attr[0], int(my_attr[1]))
         storage.save()
         print(new_instance.id)
         storage.save()
