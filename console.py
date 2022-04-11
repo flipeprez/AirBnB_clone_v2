@@ -124,10 +124,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         new_instance = HBNBCommand.classes[attrs[0]]()
-        for i in range(1, len(attrs)):
+        for i in range(2, len(attrs)):
             my_attr = attrs[i].split("=")
             if '\"' == my_attr[1][0] and '\"' == my_attr[1][-1]:
-                my_attr[1].strip('\"')
+                my_attr[1].strip('\"').replace('_', ' ')
                 setattr(attrs[0], my_attr[0], my_attr[1])
             elif '.' in my_attr[1]:
                 setattr(attrs[0], my_attr[0], float(my_attr[1]))
