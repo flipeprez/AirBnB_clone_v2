@@ -3,6 +3,7 @@
 from models.base_model import Base, BaseModel
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 from os import environ as env
 
 

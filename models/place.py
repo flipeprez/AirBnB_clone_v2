@@ -51,4 +51,5 @@ class Place(BaseModel, Base):
                 if value.place_id == self.id:
                     objs.append(value)
             return objs
+
     amenity_ids = []
