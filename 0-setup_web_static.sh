@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Bash script that set up my web server
-if [ "$(dpkg-query -W -f="${Status}" nginx 2>/dev/null | grep -c "Ok installed")" -eq 0 ]
+if [ "$(dpkg-query -W -f="${Status}" nginx 2>/dev/null | grep -c "ok installed")" -eq 0 ]
 then
 sudo apt update
-sudo apt install nginx - y
+sudo apt install nginx -y
 fi
 sudo mkdir -p /data/web_static/shared
 sudo mkdir -p /data/web_static/releases/test/
