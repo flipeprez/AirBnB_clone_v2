@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 
 @app.route("/", strict_slashes=False)
-'''a nice comment'''
 def sayHelloFunc():
+'''a nice comment'''    
     return ("Hello HBNB!")
 
 
